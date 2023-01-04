@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Customer Details</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;1,100;1,300;1,400;1,500&display=swap"
+        rel="stylesheet">
+    <style>
+        body {
+            font-size: 16px;
+        }
+
+        .container {
+            width: 600px;
+            display: inline-block;
+            text-align: left;
+        }
+
+        table {
+            width: 100%;
+            margin-bottom: 1rem;
+            color: #212529;
+        }
+
+        td {
+            padding: 0.75rem;
+            vertical-align: top;
+            border-top: 1px solid #dee2e6;
+        }
+
+        .country_header {
+            color: white;
+            padding: 8px;
+            margin: 0;
+            border-radius: 2px;
+        }
+        .details_header{
+            color: #2b2b2b;
+            padding: 8px;
+            margin: 0;
+            border-radius: 2px;
+        }
+        
+        .summary_header{
+            color: #2b2b2b;
+            padding: 8px;
+            margin: 0;
+            border-radius: 2px;
+        }
+        .summary_header p{
+            margin: 0;
+        }
+        .details_header p{
+            margin: 0;
+        }
+        .country_header p {
+            margin: 0;
+        }
+
+        thead {
+            vertical-align: bottom;
+            border-bottom: 2px solid #dee2e6;
+        }
+
+        .customer_details {
+            margin-top: 15px;
+        }
+
+        .customer_details p {
+            margin: 0;
+        }
+
+        .confirm {
+            margin-top: 30px;
+            margin-bottom: 30px;
+        }
+
+        .confirm p {
+            margin: 0;
+        }
+
+        .confirm h2 {
+            margin: 0;
+            font-size: 36px;
+            font-weight: 300;
+        }
+        .details_list{
+            margin-top: 10px;
+            margin-bottom: 20px;
+        }
+        .details_list p{
+            display: flex;
+            justify-content: space-between;
+            margin: 0;
+        }
+        .summary_list{
+            margin-top: 10px;
+            margin-bottom: 20px;
+        }
+        .summary_list p , h3{
+            display: flex;
+            justify-content: space-between;
+            margin: 0;
+        }
+        .p_summary{
+            margin-bottom: 200px;
+        }
+        .fixed_width{
+            /* width: 70px; */
+        }
+    </style>
+</head>
+
+<body style="font-family: {{ font }};">
+    <div>
+        <div style="text-align: center;">
+            <div class="container">
+                <p>
+                    <b>Get Ready for your Trip:</b> <a>Visit our Travel ready center , Your one-stop assistant , to find
+                        out
+                        about
+                        important travel requirments specific to your trip</a>
+                </p>
+                <div class="confirm">
+                    <p> Confirmation Number: </p>
+                    <h2>OJ1342</h2>
+                </div>
+                <h3>Customer Details</h3>
+                <!-- render country  -->
+                {%for country in countries%}
+                <div style="background-color: {{headerBG}} ;" class="country_header">
+                    <p> {{country}} </p>
+                </div>
+                {%for customer in customers%}
+                <div class="customer_details">
+                    <p>Customer Name: <b>{{ customer }}</b> </p>
+                    <table>
+                        <thead>
+                            <tr>
+                                <th scope="col">Product Name</th>
+                                <th scope="col" align="right" class="fixed_width">Price</th>
+                                <th scope="col" align="right" class="fixed_width">Currency</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {%for k in data["Countries"][country] [customer]%}
+                            <tr>
+                                <td> {{k["Item"]}} </td>
+                                <td align="right" class="fixed_width"> {{k["Price"]}} </td>
+                                <td align="right" class="fixed_width"> {{k["Currency"]}} </td>
+                            </tr>
+                            {%endfor%}
+                        </tbody>
+                    </table>
+                </div>
+                {% endfor %}
+                {% endfor %}
+                <!-- render country -->
+                <!-- Summery -->
+                <div class="t_detail">
+                    <div style="background-color: {{detailsBG}} ;" class="details_header">
+                        <p> Travel Details </p>
+                    </div>
+                    <div class="details_list">
+                        <p>
+                            <span>MOLINE/DAVIDA</span>
+                        </p>
+                        <p>
+                            <span>eTicket Number: <b>8942589542</b> </span>
+                            <span>Seats: <b>IAD-CLE......</b> </span>
+                        </p>
+                        
+                        <p>
+                            <span> </span>
+                            <span>CLE-LAD.... </span>
+                        </p>
+                    </div>
+                </div>
+                
+                <div class="p_summary">
+                    <div style="background-color: {{summaryBG}} ;" class="summary_header">
+                        <p> Purchase Summary </p>
+                    </div>
+                    <div class="summary_list"> 
+                        
+                        <p>
+                            <span>Method Of Payment :</span>
+                            <span> <b> Visa Ending in 0534 </b></span>
+                        </p>
+                        <p>
+                            <span> Date of  purchase:</span>
+                            <span> <b>Tue,sep 02,2022</b> </span>
+                        </p>
+                        <hr/>
+                        <p>
+                            <span> Airfare: </span>
+                            <span> <b> 32304 USD</b> </span>
+                        </p>
+                        
+                        <p>
+                            <span> U.S. Transection Tax: </span>
+                            <span> <b> 52.34 USD</b> </span>
+                        </p>
+                        <p>
+                            <span> U.S. Flight Segment Tax: </span>
+                            <span> <b> 21.4 USD</b> </span>
+                        </p>
+                        
+                        <p>
+                            <span> Semtember 11th security Fee: </span>
+                            <span> <b> 6.32 USD</b> </span>
+                        </p>
+                        <p>
+                            <span>U.S. Passenger Facility Charge: </span>
+                            <span> <b> 6.32 USD</b> </span>
+                        </p>
+                        <hr/>
+                        
+                        <p>
+                            <span>Total Per Passenger: </span>
+                            <span> <b> 534.32 USD</b> </span>
+                        </p>
+                        <hr/>
+                        
+                        <h3>
+                            <span> <b>Total:</b> </span>
+                            <span> <b> 54234.32 USD</b> </span>
+                        </h3>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</body>
+
+</html>

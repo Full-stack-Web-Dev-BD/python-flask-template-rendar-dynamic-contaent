@@ -1,0 +1,61 @@
+{
+	"Customers": [
+		"Alex",
+		"Bob",
+		"Charlie"
+	],
+	"Countries": {
+		"America": {
+			"Alex": [
+				{
+					"Item": "Jacket",
+					"Price": "100",
+					"Currency": "USD"
+				},
+				{
+					"Item": "Shoes",
+					"Price": "100",
+					"Currency": "USD"
+				}
+			],
+			"Bob": [
+				{
+					"Item": "Computer",
+					"Price": "123",
+					"Currency": "USD"
+				},
+				{
+					"Item": "Table",
+					"Price": "78",
+					"Currency": "USD"
+				}
+			]
+		},
+		"Canada": {
+			"Charlie": [
+				{
+					"Item": "Jacket",
+					"Price": "100",
+					"Currency": "USD"
+				},
+				{
+					"Item": "Shoes",
+					"Price": "100",
+					"Currency": "USD"
+				}
+			],
+			"Bob": [
+				{
+					"Item": "Computer",
+					"Price": "123",
+					"Currency": "USD"
+				},
+				{
+					"Item": "Table",
+					"Price": "78",
+					"Currency": "USD"
+				}
+			]
+		}
+	}
+}
